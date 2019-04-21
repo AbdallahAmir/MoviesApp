@@ -75,7 +75,7 @@ public class MainActivity extends AppCompatActivity  {
         recyclerView=(RecyclerView)findViewById(R.id.recycler_View);
 
         movieList=new ArrayList<>( );
-//       adapter=new MoviesAdapter(this,movieList);
+       adapter=new MoviesAdapter(this,movieList);
         if(getActivity().getResources().getConfiguration().orientation== Configuration.ORIENTATION_PORTRAIT){
             recyclerView.setLayoutManager(new GridLayoutManager(this,2));
 
@@ -83,8 +83,8 @@ public class MainActivity extends AppCompatActivity  {
             recyclerView.setLayoutManager(new GridLayoutManager(this,4));
         }
         recyclerView.setItemAnimator(new DefaultItemAnimator());
-//        recyclerView.setAdapter(adapter);
-//        adapter.notifyDataSetChange();
+        recyclerView.setAdapter(adapter);
+//       adapter.notifyDataSetChange();
 
         loadJSON();
 
@@ -104,8 +104,8 @@ public class MainActivity extends AppCompatActivity  {
                 @Override
                 public void onResponse(Call<MoviesRespones> call, Response<MoviesRespones> response) {
                     List<Movie> movies=response.body().getResults();
-                    recyclerView.setAdapter(new MoviesAdapter(getApplicationContext().movies));
-                    recyclerView.smoothScrollToPosition(0);
+              //      recyclerView.setAdapter(new MoviesAdapter(getApplicationContext().movies));
+                    recyclerView.smoothScrollToPosition(0); //dealing 5 or 6
                     if (swipeContainer.isRefreshing())
                     {
                         swipeContainer.setRefreshing(false);
@@ -131,7 +131,7 @@ public class MainActivity extends AppCompatActivity  {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_main.menu);
+        getMenuInflater().inflate(R.menu.menu_main,menu);
         return true;
     }
 
