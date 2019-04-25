@@ -104,37 +104,31 @@ public class MainActivity extends AppCompatActivity  {
                 @Override
                 public void onResponse(Call<MoviesRespones> call, Response<MoviesRespones> response) {
                     List<Movie> movies=response.body().getResults();
-              //      recyclerView.setAdapter(new MoviesAdapter(getApplicationContext().movies));
-                    recyclerView.smoothScrollToPosition(0); //dealing 5 or 6
+                    recyclerView.setAdapter(new MoviesAdapter(getApplicationContext(),movies));
+                    recyclerView.smoothScrollToPosition(0);
                     if (swipeContainer.isRefreshing())
                     {
                         swipeContainer.setRefreshing(false);
                     }
                     pd.dismiss();
                 }
-
                 @Override
                 public void onFailure(Call<MoviesRespones> call, Throwable t) {
                     Log.d("Error",t.getMessage());
                     Toast.makeText(MainActivity.this,"Error Fetching",Toast.LENGTH_SHORT).show();
-
                 }
             });
 
         }catch (Exception e){
             Log.d("Error",e.getMessage());
             Toast.makeText(this,e.toString(),Toast.LENGTH_SHORT).show();
-
         }
-
     }
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_main,menu);
         return true;
     }
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
