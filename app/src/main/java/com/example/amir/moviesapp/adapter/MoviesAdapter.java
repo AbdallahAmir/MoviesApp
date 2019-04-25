@@ -72,7 +72,7 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.myViewHold
                     if (pos!=RecyclerView.NO_POSITION){
                         Movie clickedData=movieList.get(pos);
                         Intent intent=new Intent(mContext, DetailsActivity.class);
-                        intent.putExtra("original title",movieList.get(pos).getOriginalTitle());
+                        intent.putExtra("original_title",movieList.get(pos).getOriginalTitle());
                         intent.putExtra("poster_path",movieList.get(pos).getPosterPath());
                         intent.putExtra("overview",movieList.get(pos).getOverview());
                         intent.putExtra("vote_average",Double.toString(movieList.get(pos).getVoteAverage()));

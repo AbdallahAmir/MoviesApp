@@ -29,7 +29,7 @@ public class DetailsActivity extends AppCompatActivity {
 
         initCollapsingToolbar();
 
-        imageView=(ImageView)findViewById(R.id.thumbnail_image_header);
+        imageView= findViewById(R.id.thumbnail_image_header);
         nameOfMovie=(TextView)findViewById(R.id.title);
         plotSynopsis=(TextView)findViewById(R.id.plotsynopsis);
         userRating=(TextView)findViewById(R.id.userrating);
