@@ -22,7 +22,7 @@ public class DetailsActivity extends AppCompatActivity {
     protected void onCreate( Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
-        Toolbar toolbar=(Toolbar)findViewById(R.id.toolbar);
+        Toolbar toolbar=findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         setTitle("");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -30,10 +30,10 @@ public class DetailsActivity extends AppCompatActivity {
         initCollapsingToolbar();
 
         imageView= findViewById(R.id.thumbnail_image_header);
-        nameOfMovie=(TextView)findViewById(R.id.title);
-        plotSynopsis=(TextView)findViewById(R.id.plotsynopsis);
-        userRating=(TextView)findViewById(R.id.userrating);
-        releaseDate=(TextView)findViewById(R.id.releasedate);
+        nameOfMovie=findViewById(R.id.title);
+        plotSynopsis=findViewById(R.id.plotsynopsis);
+        userRating=findViewById(R.id.userrating);
+        releaseDate=findViewById(R.id.releasedate);
 
         Intent intentthatstart=getIntent();
         if (intentthatstart.hasExtra("original_title")){
