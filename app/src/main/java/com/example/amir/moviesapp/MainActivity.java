@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         initViews();
-        swipeContainer=(SwipeRefreshLayout)findViewById(R.id.main_content);
+        swipeContainer=findViewById(R.id.main_content);
         swipeContainer.setColorSchemeResources(android.R.color.holo_orange_dark);
         swipeContainer.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
@@ -75,7 +75,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         pd.setCancelable(false);
         pd.show();
 
-        recyclerView=(RecyclerView)findViewById(R.id.recycler_View);
+        recyclerView=findViewById(R.id.recycler_View);
 
         movieList=new ArrayList<>( );
        adapter=new MoviesAdapter(this,movieList);
@@ -200,14 +200,12 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
             loadJSON1();
         }
     }
-
     @Override
     protected void onResume() {
         super.onResume();
         if (movieList.isEmpty()){
             checkSortOrder();
         }else {
-
         }
     }
 }

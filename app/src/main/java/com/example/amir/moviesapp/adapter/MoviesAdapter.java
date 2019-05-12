@@ -45,7 +45,7 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.myViewHold
         viewHolder.userrating.setText(vote);
 
         Glide.with(mContext).load(movieList.get(position).getPosterPath())
-                .placeholder(R.drawable.load).into(viewHolder.thumbnail); //load image from drawable(no internet)
+                .placeholder(R.drawable.load).into(viewHolder.thumbnail);
 
 
     }
@@ -71,6 +71,7 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.myViewHold
                     if (pos!=RecyclerView.NO_POSITION){
                         Movie clickedData=movieList.get(pos);
                         Intent intent=new Intent(mContext, DetailsActivity.class);
+                        intent.putExtra("id",movieList.get(pos).getId());
                         intent.putExtra("original_title",movieList.get(pos).getOriginalTitle());
                         intent.putExtra("poster_path",movieList.get(pos).getPosterPath());
                         intent.putExtra("overview",movieList.get(pos).getOverview());
